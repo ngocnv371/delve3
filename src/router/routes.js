@@ -50,6 +50,39 @@ export default [
     },
   },
   {
+    path: '/tavern',
+    name: 'tavern',
+    components: {
+      default: () => lazyLoadView(import('@views/tavern.vue')),
+      navigation: () => lazyLoadView(import('@components/app-bar.vue')),
+    },
+    meta: {
+      authRequired: true,
+    },
+  },
+  {
+    path: '/barrack',
+    name: 'barrack',
+    components: {
+      default: () => lazyLoadView(import('@views/barrack.vue')),
+      navigation: () => lazyLoadView(import('@components/barrack-app-bar.vue')),
+    },
+    meta: {
+      authRequired: true,
+    },
+  },
+  {
+    path: '/dungeons',
+    name: 'dungeons',
+    components: {
+      default: () => lazyLoadView(import('@views/dungeons.vue')),
+      navigation: () => lazyLoadView(import('@components/app-bar.vue')),
+    },
+    meta: {
+      authRequired: true,
+    },
+  },
+  {
     path: '/profile/:username',
     name: 'username-profile',
     components: {

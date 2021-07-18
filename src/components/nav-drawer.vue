@@ -37,8 +37,14 @@ export default {
     <v-divider></v-divider>
     <v-list nav dense>
       <v-list-item-group active-class="deep-purple--text text--accent-4">
-        <v-list-item to="/about">
-          <v-list-item-title>About</v-list-item-title>
+        <v-list-item to="/tavern">
+          <v-list-item-title>Tavern</v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/barrack">
+          <v-list-item-title>Barrack</v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/dungeons">
+          <v-list-item-title>Dungeons</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
