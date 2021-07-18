@@ -1,18 +1,15 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from 'vuex'
+import ForwardModel from '@src/mixins/forward-model'
+
 export default {
+  mixins: [ForwardModel],
   props: {
     dungeon: {
       type: Object,
       required: true,
     },
-    value: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
   },
-  data: () => ({ show: false }),
   computed: {
     ...mapGetters('barrack', ['availableParties']),
   },
@@ -22,17 +19,14 @@ export default {
     onSelect(item) {
       const expeditionId = this.start({ party: item, dungeon: this.dungeon })
       this.SET_EXPEDITION({ partyId: item.id, expeditionId })
-      this.show = false
+      this.localValue = false
     },
   },
 }
 </script>
 
 <template>
-  <v-dialog v-model="show">
-    <template v-slot:activator="{ on }">
-      <v-btn color="primary" text v-on="on">Assign</v-btn>
-    </template>
+  <v-dialog v-model="localValue">
     <v-card>
       <v-card-title>Select a party</v-card-title>
       <v-list>

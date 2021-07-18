@@ -1,23 +1,17 @@
 <script>
 import { mapMutations } from 'vuex'
+import ForwardModel from '@src/mixins/forward-model'
+
 export default {
+  mixins: [ForwardModel],
   props: {
     party: {
       type: Object,
       required: true,
     },
-    value: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
   },
-  data: () => ({ name: '', show: false }),
-  watch: {
-    value(v) {
-      this.show = v
-    },
-  },
+  data: () => ({ name: '' }),
+
   mounted() {
     this.name = this.party.name
   },
@@ -27,17 +21,14 @@ export default {
       $event.preventDefault()
       $event.stopPropagation()
       this.RENAME_PARTY({ id: this.party.id, name: this.name })
-      this.show = false
-    },
-    onDialogChange($event) {
-      this.$emit('input', this.show)
+      this.localValue = false
     },
   },
 }
 </script>
 
 <template>
-  <v-dialog v-model="show" @input="onDialogChange">
+  <v-dialog v-model="localValue">
     <v-card>
       <v-card-title>Rename party</v-card-title>
       <v-container>
