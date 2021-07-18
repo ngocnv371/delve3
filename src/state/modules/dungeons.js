@@ -1,10 +1,10 @@
 export const state = {
-  dungeons: [],
+  items: [],
 }
 
 export const mutations = {
   SET(state, value) {
-    state.dungeons = value
+    state.items = value
   },
 }
 

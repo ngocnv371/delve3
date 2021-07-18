@@ -1,6 +1,6 @@
 <script>
 import Layout from '@layouts/main.vue'
-import AssignmentDialog from '@components/assignment-dialog.vue'
+import Dungeon from '@components/dungeon.vue'
 import { mapState } from 'vuex'
 
 export default {
@@ -15,9 +15,9 @@ export default {
       ],
     }
   },
-  components: { Layout, AssignmentDialog },
+  components: { Layout, Dungeon },
   computed: {
-    ...mapState('dungeons', ['dungeons']),
+    ...mapState('dungeons', ['items']),
   },
 }
 </script>
@@ -25,15 +25,8 @@ export default {
 <template>
   <Layout>
     <v-row class="align-self-start">
-      <v-col v-for="item of dungeons" :key="item.id" cols="12">
-        <v-card>
-          <v-card-title v-text="item.name"></v-card-title>
-          <v-card-subtitle v-text="`L${item.level}`"></v-card-subtitle>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <AssignmentDialog :dungeon="item"></AssignmentDialog>
-          </v-card-actions>
-        </v-card>
+      <v-col v-for="item of items" :key="item.id" cols="12">
+        <Dungeon :dungeon="item" />
       </v-col>
     </v-row>
   </Layout>

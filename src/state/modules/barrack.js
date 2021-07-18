@@ -64,9 +64,20 @@ export const mutations = {
       p.name = name
     }
   },
+
+  SET_EXPEDITION(state, { partyId, expeditionId }) {
+    const p = state.parties.find((d) => d.id === partyId)
+    if (p) {
+      p.expeditionId = expeditionId
+    }
+  },
 }
 
-export const getters = {}
+export const getters = {
+  availableParties(state) {
+    return state.parties.filter((p) => !p.expeditionId)
+  },
+}
 
 export const actions = {
   init({ state, commit }) {
