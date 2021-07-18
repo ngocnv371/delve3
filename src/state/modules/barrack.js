@@ -57,6 +57,13 @@ export const mutations = {
   REMOVE_UNASSIGNED(state, one) {
     state.unassigned = state.unassigned.filter((m) => m.id !== one.id)
   },
+
+  RENAME_PARTY(state, { id, name }) {
+    const p = state.parties.find((d) => d.id === id)
+    if (p) {
+      p.name = name
+    }
+  },
 }
 
 export const getters = {}

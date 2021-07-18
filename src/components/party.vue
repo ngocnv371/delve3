@@ -1,9 +1,10 @@
 <script>
 import { mapMutations } from 'vuex'
+import RenamePartyDialog from './rename-party-dialog.vue'
 import memberPicker from './unassigned-member-picker.vue'
 
 export default {
-  components: { memberPicker },
+  components: { memberPicker, RenamePartyDialog },
   props: {
     party: {
       type: Object,
@@ -30,5 +31,9 @@ export default {
         @update="onUpdate(index, $event)"
       />
     </v-list>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <RenamePartyDialog :party="party"></RenamePartyDialog>
+    </v-card-actions>
   </v-card>
 </template>
