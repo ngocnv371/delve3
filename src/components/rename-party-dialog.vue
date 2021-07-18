@@ -6,8 +6,18 @@ export default {
       type: Object,
       required: true,
     },
+    value: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data: () => ({ name: '', show: false }),
+  watch: {
+    value(v) {
+      this.show = v
+    },
+  },
   mounted() {
     this.name = this.party.name
   },
@@ -19,22 +29,26 @@ export default {
       this.RENAME_PARTY({ id: this.party.id, name: this.name })
       this.show = false
     },
+    onDialogChange($event) {
+      this.$emit('input', this.show)
+    },
   },
 }
 </script>
 
 <template>
-  <v-dialog v-model="show">
-    <template v-slot:activator="{ on }">
-      <v-btn text v-on="on">Rename</v-btn>
-    </template>
+  <v-dialog v-model="show" @input="onDialogChange">
     <v-card>
       <v-card-title>Rename party</v-card-title>
       <v-container>
         <v-row>
           <v-col>
             <v-form @submit="onSave">
-              <v-text-field v-model="name" max-length="10"></v-text-field>
+              <v-text-field
+                v-model="name"
+                autofocus
+                max-length="10"
+              ></v-text-field>
             </v-form>
           </v-col>
         </v-row>
