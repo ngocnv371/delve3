@@ -16,8 +16,11 @@ export default {
   methods: {
     ...mapActions('expeditions', ['start']),
     ...mapMutations('barrack', ['SET_EXPEDITION']),
-    onSelect(item) {
-      const expeditionId = this.start({ party: item, dungeon: this.dungeon })
+    async onSelect(item) {
+      const expeditionId = await this.start({
+        party: item,
+        dungeon: this.dungeon,
+      })
       this.SET_EXPEDITION({ partyId: item.id, expeditionId })
       this.localValue = false
     },
@@ -36,6 +39,15 @@ export default {
           @click="onSelect(item)"
         >
           <v-list-item-title v-text="item.name"></v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-alert
+            class="mx-4"
+            type="warning"
+            :value="!availableParties.length"
+          >
+            No party available.
+          </v-alert>
         </v-list-item>
       </v-list>
     </v-card>

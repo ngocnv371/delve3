@@ -63,6 +63,7 @@ export const mutations = {
     if (p) {
       p.name = name
     }
+    state.parties = [...state.parties]
   },
 
   SET_EXPEDITION(state, { partyId, expeditionId }) {
@@ -70,6 +71,7 @@ export const mutations = {
     if (p) {
       p.expeditionId = expeditionId
     }
+    state.parties = [...state.parties]
   },
 }
 

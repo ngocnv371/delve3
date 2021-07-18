@@ -1,16 +1,17 @@
 <script>
 import AssignmentDialog from '@components/assignment-dialog.vue'
+import LootDialog from '@components/loot-dialog.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { AssignmentDialog },
+  components: { AssignmentDialog, LootDialog },
   props: {
     dungeon: {
       type: Object,
       required: true,
     },
   },
-  data: () => ({ showAssignmentDialog: false }),
+  data: () => ({ showAssignmentDialog: false, showLootDialog: false }),
   computed: {
     expedition() {
       return this.getByDungeonId()(this.dungeon.id)
@@ -39,11 +40,18 @@ export default {
       <v-btn v-else-if="!expedition.over" text color="primary" disabled>
         <v-icon class="fa-spin">spinner</v-icon>
       </v-btn>
-      <v-btn v-else text color="primary">Loot</v-btn>
+      <v-btn v-else text color="success" @click="showLootDialog = true">
+        Loot
+      </v-btn>
     </v-card-actions>
     <AssignmentDialog
       v-model="showAssignmentDialog"
       :dungeon="dungeon"
     ></AssignmentDialog>
+    <LootDialog
+      v-if="expedition"
+      v-model="showLootDialog"
+      :expedition="expedition"
+    />
   </v-card>
 </template>
