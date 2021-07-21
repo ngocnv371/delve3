@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "name": "Forest",
+    "description": "The forest, where all normal people do their normal things.",
+    "loot": [
+      { "id": "wood", "min": 0, "max": 10 },
+      { "id": "green_herb", "min": 0, "max": 10 }
+    ]
+  },
+  {
+    "id": 2,
+    "level": 2,
+    "name": "Bear Cave",
+    "description": "A small cave in the forest. A brave farmer could potentially walk out of it with most his limbs ingested.",
+    "loot": [
+      { "id": "bear_claw", "min": 0, "max": 2 },
+      { "id": "meat", "min": 0, "max": 2 },
+      { "id": "bear_skin", "min": 0, "max": 1 }
+    ]
+  },
+  {
+    "id": 3,
+    "level": 3,
+    "name": "Spider Nest",
+    "description": "A huge nest of horror, for cowards anyway.",
+    "loot": [
+      { "id": "spider_silk", "min": 0, "max": 3 },
+      { "id": "spider_eye", "min": 0, "max": 6 }
+    ]
+  },
+  {
+    "id": 4,
+    "level": 4,
+    "name": "Wolf Den",
+    "description": "A dark cave filled with fangs, ready to be pulled.",
+    "loot": [
+      { "id": "wolf_skin", "min": 0, "max": 6 },
+      { "id": "wolf_fang", "min": 0, "max": 12 },
+      { "id": "meat", "min": 0, "max": 6 }
+    ]
+  },
+  {
+    "id": 5,
+    "level": 5,
+    "name": "Abbandoned village",
+    "description": "A village abbandoned by the forest",
+    "loot": [
+      { "id": "bone", "min": 0, "max": 15 },
+      { "id": "wood", "min": 0, "max": 15 }
+    ]
+  }
+]

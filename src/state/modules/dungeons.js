@@ -1,3 +1,5 @@
+import { dungeons as dungeonsData } from '@utils/data-loader'
+
 export const state = {
   items: [],
 }
@@ -8,17 +10,16 @@ export const mutations = {
   },
 }
 
-export const getters = {}
+export const getters = {
+  availableDungeons(state) {
+    return state.items.map((i) => dungeonsData.find((d) => d.id === i.id))
+  },
+}
 
 export const actions = {
   init({ state, commit }) {
     // load
-    const fake = [
-      { id: 1, level: 1, name: 'Green Bushes' },
-      { id: 2, level: 2, name: 'Shallow Cave' },
-      { id: 3, level: 3, name: 'Damp Cave' },
-      { id: 4, level: 4, name: 'Dark Cave' },
-    ]
+    const fake = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
     commit('SET', fake)
   },
 }

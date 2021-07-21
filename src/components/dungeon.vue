@@ -26,7 +26,16 @@ export default {
 <template>
   <v-card>
     <v-card-title v-text="dungeon.name"></v-card-title>
-    <v-card-subtitle v-text="`L${dungeon.level}`"></v-card-subtitle>
+    <v-card-subtitle v-text="`Level ${dungeon.level}`"></v-card-subtitle>
+    <v-card-text v-text="dungeon.description"></v-card-text>
+    <v-list v-if="dungeon.loot.length">
+      <v-subheader>Loot</v-subheader>
+      <v-list-item v-for="item of dungeon.loot" :key="item.id">
+        <v-list-item-content>
+          <v-list-item-title v-text="item.name"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn

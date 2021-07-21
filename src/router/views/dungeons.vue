@@ -1,7 +1,7 @@
 <script>
 import Layout from '@layouts/main.vue'
 import Dungeon from '@components/dungeon.vue'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   page() {
@@ -17,7 +17,7 @@ export default {
   },
   components: { Layout, Dungeon },
   computed: {
-    ...mapState('dungeons', ['items']),
+    ...mapGetters('dungeons', ['availableDungeons']),
   },
 }
 </script>
@@ -25,7 +25,7 @@ export default {
 <template>
   <Layout>
     <v-row class="align-self-start">
-      <v-col v-for="item of items" :key="item.id" cols="12">
+      <v-col v-for="item of availableDungeons" :key="item.id" cols="12">
         <Dungeon :dungeon="item" />
       </v-col>
     </v-row>

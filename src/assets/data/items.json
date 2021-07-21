@@ -1,0 +1,13 @@
+[
+  { "id": "gold", "name": "Gold" },
+  { "id": "wood", "name": "Wood" },
+  { "id": "meat", "name": "Meat" },
+  { "id": "bone", "name": "Bone" },
+  { "id": "green_herb", "name": "Green Herb" },
+  { "id": "bear_skin", "name": "Bear Skin" },
+  { "id": "bear_claw", "name": "Bear Claw" },
+  { "id": "wolf_skin", "name": "Wolf Skin" },
+  { "id": "wolf_fang", "name": "Wolf Fang" },
+  { "id": "spider_silk", "name": "Spider Silk" },
+  { "id": "spider_eye", "name": "Spider Eye" }
+]
