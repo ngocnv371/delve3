@@ -1,3 +1,6 @@
+import { dungeons } from '@/src/utils/data-loader'
+import { range } from '@/src/utils/rng'
+
 export const state = {
   items: [],
 }
@@ -23,17 +26,12 @@ export const mutations = {
     if (!ex) {
       return
     }
+    const d = dungeons.find((x) => x.id === ex.dungeonId)
+    if (!d) {
+      return
+    }
     ex.over = true
-    ex.loot = [
-      {
-        id: 1,
-        quantity: 100,
-      },
-      {
-        id: 2,
-        quantity: 4,
-      },
-    ]
+    ex.loot = d.loot.map(generateLoot)
   },
 }
 
@@ -54,4 +52,9 @@ export const actions = {
     }, duration)
     return id
   },
+}
+
+function generateLoot(config) {
+  const quantity = range(config.min, config.max)
+  return { ...config, quantity }
 }

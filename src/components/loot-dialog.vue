@@ -31,7 +31,7 @@ export default {
       <v-card-title>Expedition Log</v-card-title>
       <v-list v-if="expedition">
         <v-list-item v-for="item of expedition.loot" :key="item.id">
-          <v-list-item-title v-text="item.id"></v-list-item-title>
+          <v-list-item-title v-text="item.name"></v-list-item-title>
           <v-list-item-action>
             <v-list-item-action-text
               v-text="item.quantity"
