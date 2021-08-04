@@ -83,7 +83,7 @@ Adventuring
 - [x] Collect loot from a dungeon after a party successfully cleared it
 - [x] Unlock harder dungeons and regions
 
-Progression
+Crafting
 
 - [ ] Build a weapon forge
 - [ ] Upgrade a weapon forge to house more blacksmiths
@@ -91,6 +91,12 @@ Progression
 - [ ] Upgrade an armourer station to house more armoursmiths
 - [ ] Craft an item
 - [ ] Collect crafted items
+
+Equipment
+
+- [ ] Browse inventory
+- [ ] Equip a member with an item
+- [ ] Swap an equiped item out with another
 
 Enchantment
 
