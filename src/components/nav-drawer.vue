@@ -46,6 +46,9 @@ export default {
         <v-list-item to="/dungeons">
           <v-list-item-title>Dungeons</v-list-item-title>
         </v-list-item>
+        <v-list-item to="/inventory">
+          <v-list-item-title>Inventory</v-list-item-title>
+        </v-list-item>
       </v-list-item-group>
     </v-list>
     <template v-slot:append>

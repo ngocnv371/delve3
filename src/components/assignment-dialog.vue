@@ -40,16 +40,16 @@ export default {
         >
           <v-list-item-title v-text="item.name"></v-list-item-title>
         </v-list-item>
-        <v-list-item>
-          <v-alert
-            class="mx-4"
-            type="warning"
-            :value="!availableParties.length"
-          >
+        <v-list-item v-if="!availableParties.length">
+          <v-alert class="mx-4" type="warning">
             No party available.
           </v-alert>
         </v-list-item>
       </v-list>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn text color="primary">Close</v-btn>
+      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>

@@ -46,11 +46,20 @@ export const actions = {
       dungeonId: dungeon.id,
       started: now,
     })
-    const duration = 5000
+    const duration = 1000
     setTimeout(() => {
       commit('COMPLETE', { id })
     }, duration)
     return id
+  },
+  collectExpedition(context, expedition) {
+    context.commit('REMOVE', expedition.id)
+    context.dispatch('barrack/clearExpedition', expedition.partyId, {
+      root: true,
+    })
+    context.dispatch('inventory/addLoot', expedition.loot, {
+      root: true,
+    })
   },
 }
 

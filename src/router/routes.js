@@ -83,6 +83,17 @@ export default [
     },
   },
   {
+    path: '/inventory',
+    name: 'inventory',
+    components: {
+      default: () => lazyLoadView(import('@views/inventory.vue')),
+      navigation: () => lazyLoadView(import('@components/app-bar.vue')),
+    },
+    meta: {
+      authRequired: true,
+    },
+  },
+  {
     path: '/profile/:username',
     name: 'username-profile',
     components: {

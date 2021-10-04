@@ -105,4 +105,7 @@ export const actions = {
     commit('ADD_UNASSIGNED', un2)
     commit('ADD_UNASSIGNED', un3)
   },
+  clearExpedition(context, partyId) {
+    context.commit('SET_EXPEDITION', { partyId, expeditionId: null })
+  },
 }

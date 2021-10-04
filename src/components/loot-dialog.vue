@@ -1,5 +1,5 @@
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import ForwardModel from '@src/mixins/forward-model'
 
 export default {
@@ -11,14 +11,9 @@ export default {
     },
   },
   methods: {
-    ...mapMutations('expeditions', ['REMOVE']),
-    ...mapMutations('barrack', ['SET_EXPEDITION']),
+    ...mapActions('expeditions', ['collectExpedition']),
     onCollect() {
-      this.REMOVE(this.expedition.id)
-      this.SET_EXPEDITION({
-        partyId: this.expedition.partyId,
-        expeditionId: null,
-      })
+      this.collectExpedition(this.expedition)
       this.localValue = false
     },
   },
