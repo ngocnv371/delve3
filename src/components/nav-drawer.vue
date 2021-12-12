@@ -10,6 +10,11 @@ export default {
     onUpdate(value) {
       this.SET(value)
     },
+    toggleDarkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+
+      localStorage.setItem('theme', this.$vuetify.theme.dark ? 'dark' : 'light')
+    },
   },
 }
 </script>
@@ -25,12 +30,8 @@ export default {
   >
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title class="text-h6">
-          Delve
-        </v-list-item-title>
-        <v-list-item-subtitle>
-          deep
-        </v-list-item-subtitle>
+        <v-list-item-title class="text-h6"> Delve </v-list-item-title>
+        <v-list-item-subtitle> deep </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 
@@ -53,14 +54,18 @@ export default {
     </v-list>
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block color="secondary" to="/profile">
-          Profile
+        <v-btn v-if="$vuetify.theme.dark" block @click="toggleDarkMode">
+          Light Mode
+        </v-btn>
+        <v-btn v-else block color="secondary" @click="toggleDarkMode">
+          Dark Mode
         </v-btn>
       </div>
       <div class="pa-2">
-        <v-btn block color="primary" to="/logout">
-          Logout
-        </v-btn>
+        <v-btn block color="secondary" to="/profile"> Profile </v-btn>
+      </div>
+      <div class="pa-2">
+        <v-btn block color="primary" to="/logout"> Logout </v-btn>
       </div>
     </template>
   </v-navigation-drawer>
