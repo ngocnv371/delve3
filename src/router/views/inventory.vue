@@ -39,9 +39,7 @@ export default {
           </v-list-item-action>
         </v-list-item>
         <v-list-item v-if="!items.length">
-          <v-list-item-title>
-            The inventory is empty
-          </v-list-item-title>
+          <v-list-item-title> The inventory is empty </v-list-item-title>
         </v-list-item>
       </v-list>
     </v-row>

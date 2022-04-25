@@ -45,9 +45,7 @@ export default {
               </v-list-item-icon>
             </v-list-item>
             <v-list-item v-if="!adventurers.length">
-              <v-list-item-title>
-                The tavern is empty
-              </v-list-item-title>
+              <v-list-item-title> The tavern is empty </v-list-item-title>
             </v-list-item>
           </v-list>
         </v-card>

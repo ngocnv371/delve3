@@ -16,7 +16,7 @@ export default {
   methods: {
     ...mapActions('expeditions', ['start']),
     ...mapMutations('barrack', ['SET_EXPEDITION']),
-    async onSelect(item) {
+    async onClose(item) {
       const expeditionId = await this.start({
         party: item,
         dungeon: this.dungeon,
@@ -31,25 +31,28 @@ export default {
 <template>
   <v-dialog v-model="localValue">
     <v-card>
-      <v-card-title>Select a party</v-card-title>
-      <v-list>
-        <v-list-item
-          v-for="item of availableParties"
-          :key="item.id"
-          @click="onSelect(item)"
-        >
-          <v-list-item-title v-text="item.name"></v-list-item-title>
-        </v-list-item>
-        <v-list-item v-if="!availableParties.length">
-          <v-alert class="mx-4" type="warning">
-            No party available.
-          </v-alert>
-        </v-list-item>
-      </v-list>
+      <v-card-title>Mission Assignment</v-card-title>
+      <v-select
+        class="pa-2 partyselect"
+        :items="availableParties"
+        item-text="name"
+        item-value="id"
+        label="Party"
+        no-data-text="No party available"
+        return-object
+      ></v-select>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn text color="primary">Close</v-btn>
+        <v-btn text color="primary" @click="onClose">Confirm</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
+
+<style lang="scss" module>
+@import '@design';
+
+.partyselect {
+  max-width: 150px;
+}
+</style>

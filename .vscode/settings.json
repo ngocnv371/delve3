@@ -89,5 +89,10 @@
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 80
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#193137",
+    "titleBar.activeBackground": "#23444E",
+    "titleBar.activeForeground": "#F8FBFC"
   }
 }

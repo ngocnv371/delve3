@@ -74,9 +74,7 @@ export default {
           <div class="text-right">
             <v-btn :disabled="tryingToLogIn" type="submit" color="primary">
               <v-icon v-if="tryingToLogIn" class="spin">spinner</v-icon>
-              <span v-else>
-                Log in
-              </span>
+              <span v-else> Log in </span>
             </v-btn>
           </div>
           <v-alert v-if="authError" color="error" class="mt-2">

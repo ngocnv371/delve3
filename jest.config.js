@@ -9,7 +9,7 @@ module.exports = {
   globalSetup: '<rootDir>/tests/unit/global-setup',
   globalTeardown: '<rootDir>/tests/unit/global-teardown',
   setupFilesAfterEnv: ['<rootDir>/tests/unit/matchers'],
-  testMatch: ['**/(*.)unit.js'],
+  testMatch: ['**/(*.)unit.js', '**/(*.)spec.js'],
   moduleFileExtensions: ['js', 'json', 'vue'],
   transform: {
     '^.+\\.vue$': 'vue-jest',
